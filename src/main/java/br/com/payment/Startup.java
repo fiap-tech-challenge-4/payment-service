@@ -2,12 +2,14 @@ package br.com.payment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-public class PaymentServiceApplication {
+@EnableFeignClients
+public class Startup {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PaymentServiceApplication.class, args);
+		SpringApplication.run(Startup.class, args);
 	}
 
 }

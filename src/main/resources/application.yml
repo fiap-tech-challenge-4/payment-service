@@ -1,0 +1,21 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://ep-long-union-a4r8c9oh-pooler.us-east-1.aws.neon.tech:5432/payments}
+    username: ${SPRING_DATASOURCE_USERNAME:username}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+
+mercado-pago:
+  secret-token: ${MERCADO_PAGO_SECRET_TOKEN:12345}
+  user-id: ${MERCADO_PAGO_USER_ID:12345}
+  external-pos-id: ${MERCADO_PAGO_EXTERNAL_POS_ID:FASTFOOD001}
+
+integration:
+  order-service:
+    url: ${ORDER_SERVICE_URL:http://localhost:8081}
+  mercado-pago:
+    url: ${MERCADO_PAGO_URL:https://api.mercadopago.com}
