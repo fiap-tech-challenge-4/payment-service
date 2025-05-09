@@ -133,7 +133,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>br.com.order.Startup</mainClass>
+							<mainClass>br.com.payment.Startup</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
