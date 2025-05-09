@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service-app
+  labels:
+    app: payment-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-service-app
+  template:
+    metadata:
+      labels:
+        app: payment-service-app
+    spec:
+      containers:
+        - name: app
+          image: 791691623793.dkr.ecr.us-east-1.amazonaws.com/payment-service:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: payment-service-config
+          resources:
+            requests:
+              cpu: "500m"
+            limits:
+              cpu: "1000m"
+          env:
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: payment-service-secrets
+                  key: SPRING_DATASOURCE_USERNAME
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: payment-service-secrets
+                  key: SPRING_DATASOURCE_PASSWORD
+            - name: MERCADO_PAGO_SECRET_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: payment-service-secrets
+                  key: MERCADO_PAGO_SECRET_TOKEN
+            - name: MERCADO_PAGO_USER_ID
+              valueFrom:
+                secretKeyRef:
+                  name: payment-service-secrets
+                  key: MERCADO_PAGO_USER_ID
+            - name: MERCADO_PAGO_EXTERNAL_POS_ID
+              valueFrom:
+                secretKeyRef:
+                  name: payment-service-secrets
+                  key: MERCADO_PAGO_EXTERNAL_POS_ID
