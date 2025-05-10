@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: payment-service-config
 data:
-  ORDER_SERVICE_URL: a946c461f2aa04baca3e6553f812d884-424683932.us-east-1.elb.amazonaws.com:8080
+  ORDER_SERVICE_URL: a5a29018758d54bdfb74ea84fa027856-901034013.us-east-1.elb.amazonaws.com:8080
