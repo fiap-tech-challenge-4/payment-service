@@ -8,10 +8,15 @@ Com o crescimento da lanchonete e a adoção de uma arquitetura baseada em micro
 
 Gerenciar todo o fluxo de pagamento dos pedidos realizados na aplicação, atuando como intermediador entre o sistema de pedidos e o provedor de pagamentos (Mercado Pago).
 
+## Desenho Técnico
+<div align="center">
+  <img src="https://i.ibb.co/nNLV1B1M/order-service-payment-service.png" alt="Modelo de Entidade e Relacionamento do Banco de Dados PostgreSQL">
+</div>
+
 ## Modelo de Entidade e Relacionamento
 
 <div align="center">
-  <img src="https://i.ibb.co/BHGcjhpk/DB.png" alt="Modelo de Entidade e Relacionamento do Banco de Dados PostgreSQL">
+  <img src="https://i.ibb.co/HSFtJNM/model-payment-service.png" alt="Modelo de Entidade e Relacionamento do Banco de Dados PostgreSQL">
 </div>
 
 ## Tecnologias
@@ -19,7 +24,7 @@ Gerenciar todo o fluxo de pagamento dos pedidos realizados na aplicação, atuan
     - `spring-boot-starter-web`: Para construir aplicações web.
     - `spring-boot-starter-data-jpa`: Para integração com JPA (Java Persistence API).
     - `spring-boot-starter-validation`: Para validação de dados.
-- **MongoDB**: Banco de dados NoSQL orientado a documentos, escolhido por sua flexibilidade e escalabilidade, permitindo modelar dados de forma mais dinâmica. Essa abordagem é ideal para microsserviços como o de pagamento, onde os dados podem variar conforme integrações externas (como o Mercado Pago) e exigem alta performance em operações assíncronas e reativas.
+- **PostgreSQL**: Banco de dados relacional robusto e amplamente adotado, escolhido por sua consistência, integridade transacional e suporte avançado a tipos de dados. É ideal para serviços onde a estrutura dos dados é bem definida e as relações entre entidades são fundamentais. Sua confiabilidade e conformidade com padrões SQL o tornam adequado para microsserviços que exigem forte controle de dados, validações e operações relacionais complexas.
 - **Lombok**: Biblioteca para reduzir o código boilerplate.
 - **Spring Cloud OpenFeign**: Para facilitar chamadas de serviços REST.
 - **Springdoc OpenAPI**: Para gerar documentação da API.
