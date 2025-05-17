@@ -8,9 +8,9 @@ Com o crescimento da lanchonete e a adoção de uma arquitetura baseada em micro
 
 Gerenciar todo o fluxo de pagamento dos pedidos realizados na aplicação, atuando como intermediador entre o sistema de pedidos e o provedor de pagamentos (Mercado Pago).
 
-## Desenho Técnico
+## Desenho Técnico Microsserviços
 <div align="center">
-  <img src="https://i.ibb.co/nNLV1B1M/order-service-payment-service.png" alt="Modelo de Entidade e Relacionamento do Banco de Dados PostgreSQL">
+  <img src="https://i.ibb.co/nqrh1Pcq/arquitetura-microservico.png" alt="Arquitetura de Microsserviços">
 </div>
 
 ## Modelo de Entidade e Relacionamento
