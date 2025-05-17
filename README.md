@@ -10,7 +10,7 @@ Gerenciar todo o fluxo de pagamento dos pedidos realizados na aplicação, atuan
 
 ## Desenho Técnico Microsserviços
 <div align="center">
-  <img src="https://i.ibb.co/Nd3GbKZq/arquitetura-jpg.png" alt="Arquitetura de Microsserviços">
+  <img src="https://i.ibb.co/dsPzD37s/arquitetura.png" alt="Arquitetura de Microsserviços">
 </div>
 
 ## Modelo de Entidade e Relacionamento
