@@ -69,7 +69,7 @@ class PaymentOrderUseCaseTest {
       .build();
 
     var paymentOrderResponse = PaymentOrderResponse.builder()
-      .paymentIdentifier("123456")
+      .paymentIdentifierExternal("123456")
       .qrcode("qr-code")
       .build();
 
@@ -84,7 +84,7 @@ class PaymentOrderUseCaseTest {
         .build()
     );
 
-    assertEquals("123456", response.getPaymentIdentifier());
+    assertEquals("123456", response.getPaymentIdentifierExternal());
     assertEquals("qr-code", response.getQrcode());
     verify(paymentRepository).save(any(Payment.class));
   }

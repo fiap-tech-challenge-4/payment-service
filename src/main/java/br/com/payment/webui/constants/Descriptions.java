@@ -25,7 +25,8 @@ public class Descriptions {
     public static final String ORDER_ID = "Unique order identifier";
     public static final String PAYMENT_METHOD_ID = "Unique payment method identifier";
     public static final String QRCODE = "Payment QRCode";
-    public static final String PAYMENT_IDENTIFIER = "Unique payment identifier";
+    public static final String PAYMENT_ID = "Payment identifier";
+    public static final String PAYMENT_IDENTIFIER_EXTERAL = "Unique payment identifier external";
 
     public static final String HAS_NEXT = "Indicates if there is a next page with elements";
     public static final String HAS_PREVIOUS = "Indicates if there is a previous page";

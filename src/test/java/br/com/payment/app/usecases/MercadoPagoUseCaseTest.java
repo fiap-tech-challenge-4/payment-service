@@ -69,7 +69,7 @@ class MercadoPagoUseCaseTest {
     var response = useCase.pixPaymentOrder(order);
 
     assertEquals("QR_CODE", response.getQrcode());
-    assertEquals("EXTERNAL_ORDER_ID", response.getPaymentIdentifier());
+    assertEquals("EXTERNAL_ORDER_ID", response.getPaymentIdentifierExternal());
     verify(mercadoPagoIntegration, times(1)).generateQrCode(eq(userId), eq(externalPosId), any());
   }
 }

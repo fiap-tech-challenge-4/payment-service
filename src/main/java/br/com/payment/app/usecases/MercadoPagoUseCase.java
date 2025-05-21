@@ -31,7 +31,7 @@ public class MercadoPagoUseCase {
     var response = mercadoPagoIntegration.generateQrCode(userId, externalPosId, getRequestQRCode(order));
     return PaymentOrderResponse.builder()
       .qrcode(response.getQrcode())
-      .paymentIdentifier(response.getExternalOrderId())
+      .paymentIdentifierExternal(response.getExternalOrderId())
       .build();
   }
 

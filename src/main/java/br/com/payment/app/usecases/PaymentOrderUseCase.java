@@ -46,7 +46,9 @@ public class PaymentOrderUseCase {
 
     var paymentMethod = this.getPaymentMethod(paymentDTO.getPaymentMethodId());
     var paymentOrder = paymentOrder(paymentMethod.getPaymentType(), order);
-    paymentRepository.save(getPayment(paymentMethod, order, paymentOrder));
+    var paymentSave = paymentRepository.save(getPayment(paymentMethod, order, paymentOrder));
+
+    paymentOrder.setPaymentId(String.valueOf(paymentSave.getId()));
     return paymentOrder;
   }
 
@@ -68,7 +70,7 @@ public class PaymentOrderUseCase {
       .orderId(order.getId())
       .value(order.getTotalValue())
       .status(PENDING.name())
-      .paymentIdentifier(paymentOrder.getPaymentIdentifier())
+      .paymentIdentifier(paymentOrder.getPaymentIdentifierExternal())
       .build();
   }
 

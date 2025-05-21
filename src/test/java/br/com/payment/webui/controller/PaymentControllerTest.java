@@ -49,7 +49,7 @@ class PaymentControllerTest {
 
     paymentOrderResponse = PaymentOrderResponse.builder()
       .qrcode("qrCodeData")
-      .paymentIdentifier("payment-id")
+      .paymentIdentifierExternal("payment-id")
       .build();
   }
 
