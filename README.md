@@ -13,6 +13,11 @@ Gerenciar todo o fluxo de pagamento dos pedidos realizados na aplicação, atuan
   <img src="https://i.ibb.co/dsPzD37s/arquitetura.png" alt="Arquitetura de Microsserviços">
 </div>
 
+## Evidências de Testes no SonarCloud
+<div align="center">
+  <img src="https://i.ibb.co/Y464zgZ9/payment-service.jpg" alt="Cobertura de testes no sonar">
+</div>
+
 ## Modelo de Entidade e Relacionamento
 
 <div align="center">
