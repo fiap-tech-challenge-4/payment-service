@@ -49,7 +49,8 @@ class PaymentControllerTest {
 
     paymentOrderResponse = PaymentOrderResponse.builder()
       .qrcode("qrCodeData")
-      .paymentIdentifierExternal("payment-id")
+      .paymentId("payment-id")
+      .paymentIdentifierExternal("payment-id-external")
       .build();
   }
 
@@ -62,7 +63,8 @@ class PaymentControllerTest {
         .content(objectMapper.writeValueAsString(paymentOrderRequest)))
       .andExpect(status().isCreated())
       .andExpect(jsonPath("$.qrcode").value("qrCodeData"))
-      .andExpect(jsonPath("$.paymentIdentifier").value("payment-id"));
+      .andExpect(jsonPath("$.paymentId").value("payment-id"))
+      .andExpect(jsonPath("$.paymentIdentifierExternal").value("payment-id-external"));
   }
 
   @Test

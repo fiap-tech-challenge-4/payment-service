@@ -34,26 +34,23 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class PaymentOrderUseCaseTest {
 
-  @Mock
-  private PaymentRepository paymentRepository;
-
-  @Mock
-  private PaymentMethodRepository paymentMethodRepository;
-
-  @Mock
-  private MercadoPagoUseCase mercadoPagoUseCase;
-
-  @Mock
-  private OrderServiceIntegration orderServiceIntegration;
-
   @InjectMocks
   private PaymentOrderUseCase useCase;
+  @Mock
+  private PaymentRepository paymentRepository;
+  @Mock
+  private PaymentMethodRepository paymentMethodRepository;
+  @Mock
+  private MercadoPagoUseCase mercadoPagoUseCase;
+  @Mock
+  private OrderServiceIntegration orderServiceIntegration;
 
   @Test
   void shouldCreatePixPaymentOrderSuccessfully() {
@@ -73,9 +70,14 @@ class PaymentOrderUseCaseTest {
       .qrcode("qr-code")
       .build();
 
+    var payment = Payment.builder()
+      .id(UUID.randomUUID())
+      .build();
+
     when(orderServiceIntegration.getOrderById("order-id")).thenReturn(order);
     when(paymentMethodRepository.findById(any())).thenReturn(Optional.of(paymentMethod));
-    when(mercadoPagoUseCase.pixPaymentOrder(order)).thenReturn(paymentOrderResponse);
+    when(mercadoPagoUseCase.pixPaymentOrder(any())).thenReturn(paymentOrderResponse);
+    when(paymentRepository.save(any())).thenReturn(payment);
 
     var response = useCase.paymentOrder(
       PaymentOrderDTO.builder()
@@ -86,7 +88,7 @@ class PaymentOrderUseCaseTest {
 
     assertEquals("123456", response.getPaymentIdentifierExternal());
     assertEquals("qr-code", response.getQrcode());
-    verify(paymentRepository).save(any(Payment.class));
+    verify(paymentRepository, times(1)).save(any(Payment.class));
   }
 
   @Test
